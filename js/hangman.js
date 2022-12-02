@@ -63,7 +63,7 @@ while (1 === 1) {       // !!! -= The game loop =- !!!
     } else {
         console.log("You won in " + playerGuesses.length + " guesses!");
         alert("You won in " + playerGuesses.length + " guesses!");
-        numberOfRounds = 0;
+        numberOfRounds = 1;
         break;
     }
 }
