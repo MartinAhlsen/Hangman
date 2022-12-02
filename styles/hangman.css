@@ -1,0 +1,49 @@
+body {
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.969);
+    color:#00ff11;
+}
+
+header {
+    display: flex;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+main-content {
+    display: flex;
+    flex: 1 0 auto;
+    align-items: center;
+    justify-content: center;
+}
+
+card {
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    padding: 24px;
+    align-items: center;
+    justify-content: center;
+}
+
+.blue-pill {
+    color: blue;
+}
+
+.red-pill {
+    color: red;
+}
+
+footer {
+    display: flex;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+}
+
+
