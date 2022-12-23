@@ -12,7 +12,7 @@ ALLOWED_CHARACTERS = /^[A-Z]$/         // Regex of allowed characters
 let displayedCharacters = Array(randomAnswer.length).fill(" _ ");       // Creates an array with "_" equal to length of answer
 
 alert("------------------\n" 
-        + "The name you are looking for is " + randomAnswer.length + " characters long" 
+        + "The name you are looking for is " + randomAnswer.length + " characters long\n" 
         + "------------------"
 );
 
