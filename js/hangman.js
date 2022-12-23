@@ -7,10 +7,12 @@ let possibleWords = [       // Names to choose from
 
 let randomAnswer = possibleWords[Math.floor(Math.random() * possibleWords.length)];     // Chooses a name at random
 
-const ALLOWED_CHARACTERS = ["A", "B", "C", "D", "E", "F", "G", "H", 
-                            "I", "J", "K", "L", "M", "N", "O", "P", 
-                            "Q", "R", "S", "T", "U", "V", "W", "X", 
-                            "Y", "Z"];
+// const ALLOWED_CHARACTERS = ["A", "B", "C", "D", "E", "F", "G", "H",          // Array of allowed characters
+//                             "I", "J", "K", "L", "M", "N", "O", "P", 
+//                             "Q", "R", "S", "T", "U", "V", "W", "X", 
+//                             "Y", "Z"];
+
+ALLOWED_CHARACTERS = /^[a-z]$/i         // Regex of allowed characters
 
 let displayedCharacters = Array(randomAnswer.length).fill(" _ ");       // Creates an array with "_" equal to length of answer
 console.log("------------------");
@@ -42,7 +44,7 @@ while (1 === 1) {       // !!! -= The game loop =- !!!
     
     let characterOfChoiceCapitalized = characterOfChoice.toUpperCase();     // Converts input to uppercase
     
-    if (testChosenCharacter(characterOfChoiceCapitalized) === false) {      // Is input character an allowed letter?
+    if (!testChosenCharacter(characterOfChoiceCapitalized)) {      // Is input character an allowed letter?
         alert("Faulty input, try again");
         continue;
     }
@@ -71,20 +73,31 @@ while (1 === 1) {       // !!! -= The game loop =- !!!
 
 
 //Functions
+// function testChosenCharacter(letter) {
+//     for (let i = 0; i < ALLOWED_CHARACTERS.length; i++) {       // Tests if input character is allowed
+//         if (letter === ALLOWED_CHARACTERS[i]) {
+//             for (let j = 0; j < playerGuesses.length; j++)      // Tests if input character was used before
+//                 if (letter !== playerGuesses[j]) {
+//                     continue;
+//                 } else {
+//                     return false;
+//                 }
+//             playerGuesses.push(letter);
+//             return true;
+//         }
+//     }
+//     return false;
+// }
+
 function testChosenCharacter(letter) {
-    for (let i = 0; i < ALLOWED_CHARACTERS.length; i++) {       // Tests if input character is allowed
-        if (letter === ALLOWED_CHARACTERS[i]) {
-            for (let j = 0; j < playerGuesses.length; j++)      // Tests if input character was used before
-                if (letter !== playerGuesses[j]) {
-                    continue;
-                } else {
-                    return false;
-                }
-            playerGuesses.push(letter);
-            return true;
+    if (ALLOWED_CHARACTERS.test(letter)) {             // Tests if input character is allowed
+        if (!playerGuesses.includes(letter)) {         // Tests if input character was used before
+            playerGuesses.push(letter);                // Adds current guess to previous guesses array
+            return true;    
         }
+    } else {
+        return false
     }
-    return false;
 }
 
 function doesCharacterMatch (character) {       // Does the letter match any of the letters in the random word 
