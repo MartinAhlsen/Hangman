@@ -11,9 +11,10 @@ ALLOWED_CHARACTERS = /^[A-Z]$/         // Regex of allowed characters
 
 let displayedCharacters = Array(randomAnswer.length).fill(" _ ");       // Creates an array with "_" equal to length of answer
 
-alert("------------------\n" 
-        + "The name you are looking for is " + randomAnswer.length + " characters long\n" 
-        + "------------------"
+alert(
+    "------------------\n" 
+    + "The name you are looking for is " + randomAnswer.length + " characters long\n" 
+    + "------------------"
 );
 
 let playerGuesses = [];     // Array of cumulative player inputs
@@ -24,7 +25,7 @@ let characterOfChoice = ""; // Condition for the game loop
 
 let winCondition = false;   // Condition for the game loop
 
-while (characterOfChoice !== null && !winCondition) {       // !!! -= The game loop =- !!!
+while (characterOfChoice != null && !winCondition) {       // !!! -= The game loop =- !!!
     
     let characterOfChoice = prompt("------------------\n"                        // Input
                             + "This is round number " + numberOfRounds + "\n"
