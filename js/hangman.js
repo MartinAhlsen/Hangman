@@ -13,7 +13,6 @@ let displayedCharacters = Array(randomAnswer.length).fill(" _ ");       // Creat
 
 alert("------------------\n" 
         + "The name you are looking for is " + randomAnswer.length + " characters long\n" 
-        // + "When you guess correctly, you will see your letter displayed below\n"
         + "------------------"
 );
 
@@ -23,11 +22,9 @@ let numberOfRounds = 1;     // Number of rounds counter
 
 let characterOfChoice = ""; // Condition for the game loop
 
-// let winCondition = false;   // Condition for the game loop
+let winCondition = false;   // Condition for the game loop
 
-
-
-while (characterOfChoice !== null) {       // !!! -= The game loop =- !!!
+while (characterOfChoice !== null && !winCondition) {       // !!! -= The game loop =- !!!
     
     let characterOfChoice = prompt("------------------\n"                        // Input
                             + "This is round number " + numberOfRounds + "\n"
@@ -39,6 +36,8 @@ while (characterOfChoice !== null) {       // !!! -= The game loop =- !!!
                             + displayedCharacters.join(" ") + "\n"
                             + "------------------\n"
                             + "Choose a single letter from A to Z\n");
+
+    alert(characterOfChoice + "\n" + typeof(characterOfChoice));
 
     if (characterOfChoice === null) {
         alert("Refresh page to play again")
@@ -56,14 +55,14 @@ while (characterOfChoice !== null) {       // !!! -= The game loop =- !!!
     
     if (didYouWin(displayedCharacters, randomAnswer) === false) {       // Check win condition
         numberOfRounds++;
-        continue;
     } else {
         alert("You won in " + playerGuesses.length + " guesses!");
-        numberOfRounds = 1;
-        break;
+        winCondition = true;
     }
 }
 
+
+// Functions
 function testChosenCharacter(letter) {
     if (ALLOWED_CHARACTERS.test(letter)) {             // Tests if input character is allowed
         if (!playerGuesses.includes(letter)) {         // Tests if input character was used before
