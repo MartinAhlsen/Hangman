@@ -27,7 +27,7 @@ let winCondition = false;   // Condition for the game loop
 
 while (characterOfChoice != null && !winCondition) {       // !!! -= The game loop =- !!!
     
-    let characterOfChoice = prompt("------------------\n"                        // Input
+    characterOfChoice = prompt("------------------\n"                        // Input
                             + "This is round number " + numberOfRounds + "\n"
                             + "------------------\n"
                             + "Your guesses so far in alphabetical order:\n"
@@ -40,7 +40,6 @@ while (characterOfChoice != null && !winCondition) {       // !!! -= The game lo
 
     if (characterOfChoice === null) {
         alert("Refresh page to play again")
-        continue
     }
     
     let characterOfChoiceCapitalized = characterOfChoice.toUpperCase();     // Converts input to uppercase
@@ -60,6 +59,7 @@ while (characterOfChoice != null && !winCondition) {       // !!! -= The game lo
     }
 }
 
+alert("Refresh page to play again")
 
 // Functions
 function testChosenCharacter(letter) {
