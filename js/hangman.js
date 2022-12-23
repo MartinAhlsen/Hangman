@@ -12,7 +12,7 @@ ALLOWED_CHARACTERS = /^[A-Z]$/         // Regex of allowed characters
 let displayedCharacters = Array(randomAnswer.length).fill(" _ ");       // Creates an array with "_" equal to length of answer
 
 alert("------------------\n" 
-        + "The name you are looking for is " + randomAnswer.length + " characters long\n" 
+        + "The name you are looking for is " + randomAnswer.length + " characters long" 
         + "------------------"
 );
 
@@ -36,8 +36,6 @@ while (characterOfChoice !== null && !winCondition) {       // !!! -= The game l
                             + displayedCharacters.join(" ") + "\n"
                             + "------------------\n"
                             + "Choose a single letter from A to Z\n");
-
-    alert(characterOfChoice + "\n" + typeof(characterOfChoice));
 
     if (characterOfChoice === null) {
         alert("Refresh page to play again")
