@@ -7,7 +7,7 @@ let possibleWords = [       // Names to choose from
 
 let randomAnswer = possibleWords[Math.floor(Math.random() * possibleWords.length)];     // Chooses a name at random
 
-ALLOWED_CHARACTERS = /^[A-Z]$/         // Regex of allowed characters
+const ALLOWED_CHARACTERS = /^[A-Z]$/         // Regex of allowed characters
 
 let displayedCharacters = Array(randomAnswer.length).fill(" _ ");       // Creates an array with "_" equal to length of answer
 
@@ -39,24 +39,25 @@ while (characterOfChoice != null && !winCondition) {       // !!! -= The game lo
                             + "Choose a single letter from A to Z\n");
 
     if (characterOfChoice === null) {
-        alert("Refresh page to play again")
-    }
-    
-    let characterOfChoiceCapitalized = characterOfChoice.toUpperCase();     // Converts input to uppercase
-    
-    if (!testChosenCharacter(characterOfChoiceCapitalized)) {      // Is input character an allowed letter?
-        alert("Faulty input, try again");
-        continue;
-    }
-    
-    doesCharacterMatch(characterOfChoiceCapitalized);       // Does input match a letter of the answer
-    
-    if (didYouWin(displayedCharacters, randomAnswer) === false) {       // Check win condition
-        numberOfRounds++;
     } else {
-        alert("You won in " + playerGuesses.length + " guesses!");
-        winCondition = true;
+        let characterOfChoiceCapitalized = characterOfChoice.toUpperCase();     // Converts input to uppercase
+        
+        if (!testChosenCharacter(characterOfChoiceCapitalized)) {      // Is input character an allowed letter?
+            alert("Faulty input, try again");
+            continue;
+        }
+        
+        doesCharacterMatch(characterOfChoiceCapitalized);       // Does input match a letter of the answer
+        
+        if (didYouWin(displayedCharacters, randomAnswer) === false) {       // Check win condition
+            numberOfRounds++;
+        } else {
+            alert("You won in " + playerGuesses.length + " guesses!");
+            winCondition = true;
+        }
+
     }
+    
 }
 
 alert("Refresh page to play again")
